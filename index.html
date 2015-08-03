@@ -1,0 +1,1431 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>ECMAScript6</title>
+
+		<meta name="description" content="Prezentacja na temat ECMAScript6">
+		<meta name="author" content="Rafał Gierczak grime85@gmail.com">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="icon" type="image/png" href="assets/images/favicon-196x196.png" sizes="196x196"/>
+		<link rel="icon" type="image/png" href="assets/images/favicon-96x96.png" sizes="96x96"/>
+		<link rel="icon" type="image/png" href="assets/images/favicon-32x32.png" sizes="32x32"/>
+		<link rel="icon" type="image/png" href="assets/images/favicon-16x16.png" sizes="16x16"/>
+		<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128"/>
+
+		<link rel="stylesheet" href="css/reveal.css">
+    	<link rel="stylesheet" href="css/theme/night.css" id="theme">
+    	<link rel="stylesheet" href="css/pres.css">
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+		        <section>
+		            <h1>ECMAScript6</h1>
+
+		            <p>
+		            	Overview of new features
+		            </p>
+		        </section>				
+
+					<!-- Historia ECMAScript -->
+				<section>
+		            <section>
+		             <h3>ECMAScript</h3>
+		             <p>Scripting language standardized by ECMA International</p>
+		              <p>Most popular implementation? JavaScript!</p>
+
+		              <ul>
+		              <li>1961</li>
+		              <li>European Computer Manufacturers Association</li>
+		              <li>1994 - ECMA-> ECMA International</li>
+		              <li>"Europejskie Stowarzyszenie Producentów Opakowań z Kartonu" (European Carton Makers Association)
+		              </li>
+		              <li>
+		              	JavaScript, ActionScript, JScript
+		              </li>
+		          </ul>
+		            </section>
+		            <section>
+		                <div class="line"></div>       
+		                <h3>1995</h3>
+		                <p>JS is born. Created by Brendon Eich</p>
+		            </section>
+		             <section>
+		                <div class="line"></div>     
+		                <h3>1997</h3>
+		                <p>ECMA-262 Ed 1. (ES1) Created by TC39 committee (Emca International)</p>
+		            </section>
+		             <section>
+		                <div class="line"></div>     
+		                <h3>1998</h3>
+		                <p>ES2</p>
+		            </section>
+		            <section>
+		                <div class="line"></div>     
+		                <h3>1999</h3>
+		                <p>ES3</p>
+		                <p>IE 6-7-8, Firefox 1</p>
+		            </section>
+		              <section>
+		                <div class="line"></div>     
+		                <h3>2000</h3>
+		                <p>Work started on ES4</p>
+		            </section>
+		             <section>
+		                <div class="line"></div>     
+		                <h3>2003</h3>
+		                <p>ES4 totally abandoned</p>
+		            </section>
+		             <section>
+		                <div class="line"></div>     
+		                <h3>2005</h3>
+		                <p>Adobe, Mozilla and Google start work on ES4 again</p>
+		            </section>
+		            <section>
+		                <div class="line"></div>     
+		                <h3>2007</h3>
+		                <p>Microsoft, Yahoo, Google, and TC39 ratify ES3.1</p>
+		                <p>Later became known as ES5</p>
+		            </section>
+		            <section>
+		                <div class="line"></div>     
+		                <h3>2008</h3>
+		                <p>Some ES4 proposals rolled into ES Harmony (ES6)</p>
+		            </section>
+		            <section>
+		                <div class="line"></div>     
+		                <h3>2009</h3>
+		                <p>ES5 spec finalized</p>
+		            </section>
+		            <section> 
+		                <div class="line"></div>    
+		                <h3>2011</h3>
+		                <p>ES5 released</p>
+		                <p>Implemented in JS Version 1.8.5</p>
+		                <p>IE9+, Firefox 3.5+ era, Chrome 2.0+</p>
+		            </section>
+		            <section> 
+		                <div class="line"></div>    
+		                <h3>2013</h3>
+		                <p>ES6 proposal freeze</p>
+		            </section>
+		            <section>   
+		               <div class="line"></div> 
+		                <h3>August, 2014</h3>
+		                <p>ES6 feature freeze</p>
+		            </section>
+		             <section>
+		                <div class="line end"></div>   
+		                <h3>Jan, 2015</h3>
+		                <p>Renamed to ES2015...?</p>
+		            </section>
+		            <section>
+		                <div class="line end"></div>   
+		                <h3>March, 2015</h3>
+		                <p>Offical ES6 pub process starting</p>
+		            </section>
+		            <section>
+		                <div class="line end"></div>   
+		                <h3>June 17, 2015</h3>
+		                <p>ECMAScript® 2015 Language Specification</p>
+		            </section>		            
+		        </section>
+
+		        <section>
+		        	<h2>Block scope</h2>
+		        	<p><a href="#">let</a> and <a href="#">const</a></p>
+		        </section>
+
+		        <section>
+		            <h3>let</h3>
+		        </section>
+		        <!-- let examples -->
+		        <section class="full">
+		            <div class="editor-input expanded">
+let x = 123;
+
+if (true) {
+	let x = 456;
+}
+
+console.log(x);
+		            </div>
+
+		            <div class="editor-result-output"></div>
+		        </section>
+
+		        <!-- const-->
+		        <section>
+		            <h3>const</h3>
+
+		            <ul>
+		            	<li>Read only</li>
+		            	<li>Represents block scope</li>
+		            </ul>
+		        </section>
+
+		        <!-- const examples -->
+		        <section class="full">
+		            <div class="editor-input expanded">
+const PI = 3.141593;
+const subject = "Math";
+
+//block scope
+if (true) {
+    const PI = 3.14; 
+    console.log(PI + subject); 
+}
+
+PI = 3.1415; // error
+
+console.log(PI + subject); 
+
+		            </div>
+
+		            <div class="editor-result-output"></div>
+		        </section>
+
+				<!-- arrow functions -->
+		        <section>
+		            <h3>Arrow functions </h3>
+
+		            <ul>
+		            	<li>fat-arrow syntax "=>"</li>
+		            	<li>No constructor!</li>
+		            	<li>lexical this</li>
+		            </ul>
+		        </section>
+
+		        <!-- arrow functions examples -->
+		        <section class="full">
+		            <div class="editor-input expanded">
+function Person() {
+
+    this.name = "Rafal";
+    this.age = 20;
+
+    this.interval = setInterval(() => {
+    	this.showPerson();
+	}, 1000);
+
+	this.showPerson = () => {
+		console.log(this.name + ", wiek: " + this.age);
+		this.age === 35 ? this.stop() : this.age += 1;
+	}
+
+	this.stop = () => {
+		clearInterval(this.interval);
+	}
+}
+
+var person = new Person();
+		            </div>
+
+		            <div class="editor-result-output"></div>
+		        </section>
+
+		        <!-- string templates -->
+		        <section>
+		            <h3>String templates</h3>
+
+		            <p>
+		                Nesting expression inside string
+		            </p>
+		        </section>
+
+		        <section class="full">
+		            <div class="editor-input expanded">
+//es6:
+let a = {
+    val: 234
+};
+
+let b = 2;
+
+let c = () => {
+    return 345;
+}
+
+let sumES5 = `suma: ${a.val} + ${b} + ${c()} to: ${a.val + b + c()}`;
+console.log(sumES5);
+
+//es5:
+var d = {
+    val: 234
+};
+
+var e = 2;
+
+var f = function() {
+    return 345;
+}
+
+var sumES6 = "suma: " + d.val + " + " + e + " + " + f() + " to: " + (d.val + e + f());
+console.log(sumES6);
+		            </div>
+
+		            <div class="editor-result-output"></div>
+		        </section>
+
+		        <!-- Destructuring assignments-->
+		        <section>
+		            <h3>Destructuring assignments</h3>
+
+		            <p>Allow to create pack of data</p>
+		            <p>Pack can be created as an array: (array destructuring), or object (object destructuring)</p>
+
+		        </section>
+
+		        <!-- Array destructuring-->
+		        <section>
+		            <h3>Array destructuring</h3>
+		        </section>
+
+		        <!-- Array destructuring examples -->
+		        <section class="full">
+		            <div class="editor-input expanded">
+// ES5
+var point = [3, 4];
+var x = point[0];
+var y = point[1];
+
+console.log('es5 x: ' + x);
+console.log('es5 y: ' + y);
+
+// ES6
+let newPoint = [1, 2];
+let [newX, newY] = newPoint;
+
+console.log('es6 x: ' + newX);
+console.log('es6 y: ' + newY);
+// .. and reverse!
+[newX, newY] = [newY, newX];
+
+console.log([newX, newY]);
+		            </div>
+
+		            <div class="editor-result-output"></div>
+		        </section>
+
+		        <section class="full">
+		            <div class="editor-input expanded">
+// omitting values
+let arr = [1, 2, 3];
+let [a, , c] = arr;
+
+console.log(a);
+console.log(c);
+
+//nested values
+let nested = [1, [2, 3], 4];
+let [d, [e], f] = nested;
+
+console.log(d);
+console.log(e);
+console.log(f);
+		            </div>
+
+		            <div class="editor-result-output"></div>
+		        </section>	
+
+		        <!-- Object destructuring-->
+		        <section>
+		            <h3>Object destructuring</h3>
+		        </section>
+
+		        <section class="full">
+		            <div class="editor-input expanded">
+let point = {
+   x: 1,
+   y: 2
+};
+
+let { x: a, y: b } = point;
+
+console.log(a);
+console.log(b);
+		            </div>
+
+		            <div class="editor-result-output"></div>
+		        </section>
+
+
+		        <section class="full">
+		            <div class="editor-input expanded">
+// nested objects
+let point = {
+    x: 1,
+    y: 2,
+    z: {
+      one: 3,
+      two: 4
+    }
+};
+
+let { x: a, y: b, z: { one: c, two: d } } = point;
+ 
+console.log(a);
+console.log(b);
+console.log(c);
+console.log(d);
+		            </div>
+
+		            <div class="editor-result-output"></div>
+		        </section>	
+
+		        <!-- Mixed destructuring-->
+		        <section>
+		            <h3>Mixed destructuring</h3>
+		        </section>
+
+		        <section class="full">
+		            <div class="editor-input expanded">
+function mixed () {
+    return {
+     	one: 1,
+     	two: 2,
+    	values: [3, 4, 5]
+    };
+}
+
+let { one: a, two: b, values: [c, , e] } = mixed();
+ 
+console.log(a); // 1
+console.log(b); // 2
+console.log(c); // 3
+console.log(e); // 5
+		            </div>
+
+		            <div class="editor-result-output"></div>
+		        </section>
+
+		        <!-- Default parameters-->
+		        <section>
+		            <h3>Default parameters</h3>
+		        </section>
+
+		        <section class="full">
+		            <div class="editor-input expanded">
+
+let getApiUrl = (resource, base = "http://example.com/") => {
+    return `${base}/${resource}`;
+}
+
+let staticBase = "http://example.pl/static";
+
+let getStaticUrl = (resource, base = staticBase) => {
+    return `${base}/${resource}`;
+}
+
+function getThumb(resource, width, dpi = width/10 ) {
+    return `${staticBase}/${resource}?width=${width}&dpi=${dpi}`;
+}
+
+console.log(getApiUrl("image"));
+console.log(getStaticUrl("doc.pdf"));
+console.log(getThumb("image.jpg",200));
+		            </div>
+
+		            <div class="editor-result-output"></div>
+		        </section>
+
+		        <!-- Object literals-->
+		        <section>
+		            <h3>Object literals</h3>
+		        </section>
+
+		        <section class="full">
+		            <div class="editor-input expanded">
+
+let name = "Rafal",
+    age = 29;
+
+const me = {
+    name: name,
+    age, // new way
+
+    weight: function(){
+        return 86.1826;
+    },
+
+    //new way
+    height() {
+        return 180;
+    }
+}
+
+console.log(me.name);
+console.log(me.age);
+console.log(me.weight());
+console.log(me.height());
+		            </div>
+
+		            <div class="editor-result-output"></div>
+		        </section>
+
+		        <!-- Rest parameters -->
+		        <section>
+		            <h3>Rest parameters</h3>
+		            <p>
+		            	allow passing the parameters to functions using three dots.
+		            </p>
+		        </section>
+
+		        <section class="full">
+		            <div class="editor-input expanded">
+//ES5
+function sum() {
+	var numbers = Array.prototype.slice.call(arguments);
+	var result = 0;
+	numbers.forEach(function (number) {
+		result += number;
+	});
+	return result;
+}
+console.log(sum(1)); // 1
+console.log(sum(1, 2, 3, 4, 5)); // 15
+
+		            </div>
+
+		            <div class="editor-result-output"></div>
+		        </section>
+
+		        <section class="full">
+		            <div class="editor-input expanded">
+//ES6
+function sum(...numbers) {
+	var result = 0;
+	numbers.forEach(function (number) {
+		result += number;
+	});
+	return result;
+}
+console.log(sum(1)); // 1
+console.log(sum(1, 2, 3, 4, 5)); // 15
+
+
+		            </div>
+
+		            <div class="editor-result-output"></div>
+		        </section>		        
+
+		        <!-- Spread operator-->
+		        <section>
+		            <h3>Spread operator</h3>
+		        </section>
+
+		        <section class="full">
+		            <div class="editor-input expanded">
+// ES5		            	
+function sum(a, b, c) {
+	return a + b + c;
+}
+
+var args = [1, 2, 7];
+console.log(sum.apply(sum, args));
+		            </div>
+
+		            <div class="editor-result-output"></div>
+		        </section>
+
+		        <section class="full">
+		            <div class="editor-input expanded">
+// ES6	            	
+function sum(a, b, c) {
+	return a + b + c;
+}
+
+var args = [1, 2];
+console.log(sum(...args, 3));
+		            </div>
+
+		            <div class="editor-result-output"></div>
+		        </section>
+
+		        <section class="full">
+		            <div class="editor-input expanded">
+// ES5            	
+let values = [25, 50, 75, 100]
+console.log(Math.max.apply(Math, values));
+
+// ES6
+console.log(Math.max(...values));
+		            </div>
+
+		            <div class="editor-result-output"></div>
+		        </section>	
+
+		        <!-- Class -->
+		        <section>
+		            <h3>Classes</h3>
+		        </section>        
+
+		        <section class="full">
+		            <div class="editor-input expanded">
+//ES5
+function Vehicle (name, type) {
+      this.name = name;
+      this.type = type;
+};
+Vehicle.prototype.getName = function getName(){
+	console.log(this.name);
+};
+
+Vehicle.prototype.getType = function getName(){
+	console.log(this.type);
+};
+
+var car = new Vehicle('Audi', 'samochód');
+car.getName();
+car.getType();
+
+		            </div>
+
+		            <div class="editor-result-output"></div>
+		        </section>
+
+		        <section class="full">
+		            <div class="editor-input expanded">
+//ES6: class, constructor
+
+class Vehicle {
+	constructor (name, type) {
+	    this.name = name;
+	    this.type = type;
+	}
+	getName () {
+	    console.log(this.name);
+	}
+	getType() {
+	    console.log(this.type);
+	}
+};
+
+let car = new Vehicle('Audi', 'samochód');
+car.getName();
+car.getType();
+		            </div>
+
+		            <div class="editor-result-output"></div>
+		        </section>
+
+		        <section>
+		            <h3>Classes</h3>
+		            <h4>Inheritance</h4>
+		        </section>
+
+		        <section class="full">
+		            <div class="editor-input expanded">
+//ES5
+function Vehicle (name, type) {
+      this.name = name;
+      this.type = type;
+};
+Vehicle.prototype.getName = function getName(){
+	console.log(this.name);
+	return this.name;
+};
+
+Vehicle.prototype.getType = function getName(){
+	console.log(this.type);
+	return this.type;
+};
+
+
+function Car (name) {
+      Vehicle.call(this, name, 'car');
+}
+
+Car.prototype = Object.create(Vehicle.prototype);
+
+Car.prototype.constructor = Car;
+Car.parent = Vehicle.prototype;
+
+Car.prototype.getName = function () {
+      console.log('Oto mój pojazd: '+ this.name);
+};
+
+var car = new Car('audi'); 
+console.log(car.getName());
+console.log(car.getType());
+
+		            </div>
+
+		            <div class="editor-result-output"></div>
+		        </section>
+
+				<section class="full">
+		            <div class="editor-input expanded">
+//ES6
+//super - calling function from parent
+
+class Vehicle {
+	constructor (name, type) {
+	    this.name = name;
+	    this.type = type;
+	}
+	getName() {
+	    console.log(this.name);
+	    return this.name;
+	}
+	getType() {
+	    console.log(this.type);
+	    return this.type;
+	}
+};
+
+class Car extends Vehicle {
+
+	constructor (name) {
+	    super (name, 'car');
+	}
+
+	getName() {
+	    return 'Oto samochód: ' + super.getName();
+	}
+}
+
+let car = new Car('audi'); 
+console.log(car.getName());
+console.log(car.getType());
+
+
+		            </div>
+
+		            <div class="editor-result-output"></div>
+		        </section>
+
+		        <section>
+		            <h3>Classes</h3>
+		            <h4>Static functions</h4>
+		        </section>
+
+				<section class="full">
+		            <div class="editor-input expanded">
+//ES6
+//connected with constructor(class), not with an object(prototype)
+
+class Vehicle {
+	constructor (name, type) {
+	    this.name = name;
+	    this.type = type;
+	}
+
+	getName() {
+		console.log(this.name);
+	    return this.name;
+	}
+
+	getType() {
+	    return this.type;
+	}
+
+	static create (name, type) {
+	    return new Vehicle(name, type);
+	}
+};
+
+let car = Vehicle.create('Audi', 'car');
+car.getName();
+		            </div>
+
+		            <div class="editor-result-output"></div>
+		        </section>
+
+		        <section>
+		            <h3>Classes</h3>
+		            <h4>getters setters</h4>
+		        </section>
+
+				<section class="full">
+		            <div class="editor-input expanded">
+//Getters, setters in ES6
+
+class Car {
+	constructor (name, type) {
+		this._name = name;
+	}
+	set name (name) {
+	    this._name = name;
+	    console.log('setter: ' + this._name);
+	}
+	get name () {
+	    console.log('getter: '+ this._name);
+	    return this._name;
+	}
+};
+
+let car = new Car ('Audi');
+
+car.name;
+car.name = 'BMW';
+car.name;
+		            </div>
+
+		            <div class="editor-result-output"></div>
+		        </section>
+
+		        <section>
+		            <h3>Map, Set, WeakMap, WeakSet</h3>
+		        </section>
+
+		        <section>
+		            <h3>Map</h3>
+		            <p>Maps are a store for key / value pairs. Key and value could be a primitives or object references.</p>
+		        </section>
+
+				<section class="full">
+		            <div class="editor-input expanded">
+
+var myMap = new Map();
+
+var keyObj = {},
+    keyFunc = function () {},
+    keyString = "a string";
+
+// setting the values
+myMap.set(keyString, "value associated with 'a string'");
+myMap.set(keyObj, "value associated with keyObj");
+myMap.set(keyFunc, "value associated with keyFunc");
+
+myMap.size; // 3
+
+// getting the values
+myMap.get(keyString);    // "value associated with 'a string'"
+myMap.get(keyObj);       // "value associated with keyObj"
+myMap.get(keyFunc);      // "value associated with keyFunc"
+
+myMap.get("a string");   // "value associated with 'a string'"
+                         // because keyString === 'a string'
+myMap.get({});           // undefined, because keyObj !== {}
+myMap.get(function() {});
+
+for (let item of myMap) console.log(item);
+
+		            </div>
+
+		            <div class="editor-result-output"></div>
+		        </section>
+
+		        <section>
+		            <h3>WeakMap</h3>
+		            <p>
+		                Like a Map, but not iterable
+		            </p>
+		            <p>
+		                Keys cannot be primitive types. Keys are objects and are "weakly" held
+		                (If there is no other reference to an object stored in the WeakMap, they can be garbage collected)
+		            </p>
+		        </section>
+
+				<section class="full">
+		            <div class="editor-input expanded">
+var wm1 = new WeakMap(),
+    wm2 = new WeakMap(),
+    wm3 = new WeakMap();
+var o1 = {},
+    o2 = function(){},
+    o3 = window;
+
+wm1.set(o1, 37);
+wm1.set(o2, "azerty");
+wm2.set(o1, o2); // a value can be anything, including an object or a function
+wm2.set(o3, undefined);
+wm2.set(wm1, wm2); // keys and values can be any objects. Even WeakMaps!
+
+wm1.get(o2); // "azerty"
+wm2.get(o2); // undefined, because there is no value for o2 on wm2
+wm2.get(o3); // undefined, because that is the set value
+
+wm1.has(o2); // true
+wm2.has(o2); // false
+wm2.has(o3); // true (even if the value itself is 'undefined')
+
+wm3.set(o1, 37);
+wm3.get(o1); // 37
+
+wm1.has(o1); // true
+wm1.delete(o1);
+wm1.has(o1); // false
+		            </div>
+
+		            <div class="editor-result-output"></div>
+		        </section>
+
+		        <section>
+		            <h3>WeakMap</h3>
+		            <p>
+		            	Using Weakmaps we can actually create private variables not accessible from outside of the class and only internally.
+		            </p>
+		            <p>
+		            	WeakMaps are always garbage collected when the instance is destroyed, so memory leaks are never an issue like they are when using an array.
+		            </p>
+		        </section>
+
+				<section class="full">
+		            <div class="editor-input expanded">
+// Define as constant
+const privateData = new WeakMap();
+
+class MyClass {
+    constructor(name, age) {
+        privateData.set(this, { name: name, age: age });
+    }
+
+    getName() {
+        return privateData.get(this).name;
+    }
+
+    getAge() {
+        return privateData.get(this).age;
+    }
+}
+
+let p = new MyClass('Rafal', 26);
+console.log(p.getAge());
+
+		            </div>
+
+		            <div class="editor-result-output"></div>
+		        </section>
+
+		        <section>
+		            <h3>Set</h3>
+		            <p>
+The Set object lets you store unique values of any type, whether primitive values or object references.
+		            </p>
+		        </section>
+
+				<section class="full">
+		            <div class="editor-input expanded">
+var mySet = new Set();
+
+mySet.add(1);
+mySet.add(5);
+mySet.add("some text");
+
+mySet.has(1); // true
+mySet.has(3); // false, 3 has not been added to the set
+mySet.has(5);              // true
+mySet.has(Math.sqrt(25));  // true
+mySet.has("Some Text".toLowerCase()); // true
+
+mySet.size; // 3
+
+mySet.delete(5); // removes 5 from the set
+mySet.has(5);    // false, 5 has been removed
+
+mySet.size; // 2, we just removed one value
+		            </div>
+
+		            <div class="editor-result-output"></div>
+		        </section>
+
+		        <section>
+		            <h3>WeakSet</h3>
+
+		            <p>WeakSet objects are collections of objects.</p>
+
+		            <p>
+		                Like a Set, but not iterable
+		            </p>
+
+		            <p>
+		            	An object in the WeakSet may only occur once; it is unique in the WeakSet's collection.
+		            </p>
+
+		            <p>
+		                Values cannot be primitive types. Values are objects and are "weakly" held
+		                (If there is no other reference to an object stored in the WeakSet, they can be garbage collected)
+		            </p>
+		        </section>
+
+				<section class="full">
+		            <div class="editor-input expanded">
+var ws = new WeakSet();
+var obj = {};
+var foo = {};
+
+ws.add(window);
+ws.add(obj);
+
+ws.has(window); // true
+ws.has(foo);    // false, foo has not been added to the set
+
+ws.delete(window); // removes window from the set
+ws.has(window);    // false, window has been removed
+
+ws.clear(); // empty the whole WeakSet
+		            </div>
+
+		            <div class="editor-result-output"></div>
+		        </section>
+
+		        <section>
+		            <h3>Iterators</h3>
+
+		            <p>
+		                Iterator & iterable
+		            </p>
+		        </section>
+
+		        <section>
+		            <p>
+		                iterator - an object with a next method that returns { done, value } tuples.
+		            </p>
+		            <p>
+		            	iterable - an object which has Symbol.iterator method inside.
+		            </p>
+		            <p> Build-in iterables:
+		            <ul>
+		            	<li>String</li>
+		            	<li>Array</li>
+		            	<li>Map</li>
+		            	<li>Set</li>
+		            </ul>
+		        </section>
+
+				<section class="full">
+		            <div class="editor-input expanded">
+let arr = ['a', 'b', 'c'];
+let iter = arr[Symbol.iterator]();
+
+console.log(iter.next());
+console.log(iter.next());
+console.log(iter.next());
+console.log(iter.next());
+		            </div>
+
+		            <div class="editor-result-output"></div>
+		        </section>
+
+				<section class="full">
+		            <div class="editor-input expanded">
+
+// Iterator w ES5
+function createIterator(items) {
+
+    var i = 0;
+
+    return {
+        next: function() {
+
+            var done = (i >= items.length);
+            var value = !done ? items[i++] : undefined;
+
+            return {
+                done: done,
+                value: value
+            };
+
+        }
+    };
+}
+
+var iterator = createIterator([1, 2, 3]);
+
+console.log(iterator.next());
+console.log(iterator.next());
+console.log(iterator.next());
+console.log(iterator.next());
+
+// kazdy kolejny call
+console.log(iterator.next());
+		            </div>
+
+		            <div class="editor-result-output"></div>
+		        </section>
+
+				<section class="full">
+		            <div class="editor-input expanded">
+// Random iterator
+let random1_10 = (items = 1) => {
+    return {
+    	[Symbol.iterator]() {
+        	let cur = 0;
+
+        	return {
+	      		next() {
+	        		let done = cur === items,
+	            	random = Math.floor(Math.random() * 10) + 1;
+	            	++cur;
+
+           			return {
+             			done: done,
+             			value: random
+           			}
+         		}
+       		}
+    	}
+   	};
+};
+ 
+for (let n of random1_10(5)) {
+   console.log(n);
+}
+		            </div>
+
+		            <div class="editor-result-output"></div>
+		        </section>
+
+		        <section>
+		            <h3>Loops and iteratoion</h2>
+		        </section>
+
+		        <section>
+		        	<h3>Loops and iteratoion</h2>
+		            <h4>for of loop</h3>
+		        </section>
+
+				<section class="full">
+		            <div class="editor-input expanded">
+
+// array
+for (let x of ['a', 'b']) {
+    console.log(x);
+}
+
+// strings
+for (let x of 'RAFAL') {
+    console.log(x);
+}
+
+// map
+let map = new Map().set('a', 1).set('b', 2);
+
+for (let pair of map) {
+    console.log(pair);
+}
+
+// set
+let set = new Set().add('a').add('b');
+
+for (let x of set) {
+    console.log(x);
+}
+
+		            </div>
+		            <div class="editor-result-output"></div>
+		        </section>
+
+		        <section>
+		        	<h2>Loops and iteratoion</h2>
+		            <p>All major ES6 data structures (Arrays, Typed Arrays, Maps, Sets) have three methods that return iterable objects:</p>
+		            <ul>
+		            	<li>entries()</li>
+		            	<li>keys()</li>
+		            	<li>values()</li>
+		            </ul>
+		        </section>
+
+				<section class="full">
+		            <div class="editor-input expanded">
+
+// entries
+let arr = ['a', 'b', 'c'];
+for (let entry of arr.entries()) {
+    console.log(entry);
+}
+
+// keys
+for (let key of arr.keys()) {
+    console.log(key);
+}
+
+// values
+for (let value of arr.values()) {
+    console.log(value);
+}
+		            </div>
+		            <div class="editor-result-output"></div>
+		        </section>
+
+		        <section>
+		            <h3>Generators</h3>
+
+		            <ul>
+		            	<li>subtypes of iterators</li>
+		            	<li>use function* and yield</li>
+		            	<li>borrowed from Python language</li>
+		            </ul>
+		        </section>
+				<section>
+					<img src="assets/images/generator.jpg" alt="generator">
+		        </section>
+
+				<section class="full">
+		            <div class="editor-input expanded">
+
+// Simple generator
+function* generator () {
+    yield 1;
+    // pause
+    yield 2;
+    // pause
+    yield 3;
+    // pause
+    yield 'done?';
+    // done
+}
+
+let gen = generator();
+ 
+console.log(gen.next());
+console.log(gen.next());
+console.log(gen.next());
+console.log(gen.next());
+console.log(gen.next());
+console.log(gen.next());
+ 
+for (let val of generator()) {
+    console.log(val); 
+}
+		            </div>
+		            <div class="editor-result-output"></div>
+		        </section>
+
+				<section class="full">
+		            <div class="editor-input expanded">
+// Simple random1_10 generator, ES5
+
+function random1_10 () {
+    return {
+      	next: function() {
+        	return {
+          		value: Math.floor(Math.random() * 10) + 1,
+          		done: false
+        	};
+      	}
+    };
+}
+ 
+let rand = random1_10();
+console.log(rand.next());
+		            </div>
+		            <div class="editor-result-output"></div>
+		        </section>
+
+				<section class="full">
+		            <div class="editor-input expanded">
+// Simple random1_10 generator, ES6
+
+function* random1_10 () {
+	while (true) {
+    	yield Math.floor(Math.random() * 10) + 1;
+   	}
+}
+  
+let rand = random1_10();
+
+console.log(rand.next());
+		            </div>
+		            <div class="editor-result-output"></div>
+		        </section>
+
+		        <section>
+		            <h3>Mixing generators together (yield*)</h3>
+		        </section>
+
+				<section class="full">
+		            <div class="editor-input expanded">
+function* random (max) {
+    yield Math.floor(Math.random() * max) + 1;
+}
+ 
+function* random1_20 () {
+    while (true) {
+        yield* random(20);
+    }
+}
+ 
+let rand = random1_20();
+console.log(rand.next());
+		            </div>
+		            <div class="editor-result-output"></div>
+		        </section>
+
+		        <section>
+		            <h3>Different ways of implementation</h3>
+		        </section>
+
+		        <section>
+		            <h3>Generator function expressions</h3>
+		        </section>
+
+				<section class="full">
+		            <div class="editor-input expanded">
+let createIterator = function *(items) {
+    for (let i=0; i < items.length; i++) {
+        yield items[i];
+    }
+};
+
+let iterator = createIterator([1, 2, 3]);
+
+console.log(iterator.next());
+console.log(iterator.next());
+console.log(iterator.next());
+console.log(iterator.next());
+
+// for all further calls
+console.log(iterator.next());
+		            </div>
+		            <div class="editor-result-output"></div>
+		        </section>
+
+		        <section>
+		            <h3>Generator object methods</h3>
+		        </section>		        
+
+				<section class="full">
+		            <div class="editor-input expanded">
+// ES5 style		            	
+var o = {
+
+    createIterator: function *(items) {
+        for (let i=0; i < items.length; i++) {
+            yield items[i];
+        }
+    }
+};
+
+let iterator = o.createIterator([1, 2, 3]);
+		            </div>
+		            <div class="editor-result-output"></div>
+		        </section>
+
+				<section class="full">
+		            <div class="editor-input expanded">
+// ES6 style
+let o = {
+
+    *createIterator(items) {
+        for (let i=0; i < items.length; i++) {
+            yield items[i];
+        }
+    }
+};
+
+let iterator = o.createIterator([1, 2, 3]);
+		            </div>
+		            <div class="editor-result-output"></div>
+		        </section>		
+
+		        <section>
+		            <h3>Generator Class Methods</h3>
+		        </section>	
+
+				<section class="full">
+		            <div class="editor-input expanded">
+class MyClass {
+
+    *createIterator(items) {
+        for (let i=0; i < items.length; i++) {
+            yield items[i];
+        }
+    }
+}
+
+let o = new MyClass();
+let iterator = o.createIterator([1, 2, 3]);
+		            </div>
+		            <div class="editor-result-output"></div>
+		        </section>		
+
+		        <section>
+		            <h3>second use of next()</h3>
+		        </section>
+
+				<section class="full">
+		            <div class="editor-input expanded">
+function* ticketGenerator() {
+	for(var i = 0; true; i++) {
+		yield i;
+	}
+}
+
+let takeANumber = ticketGenerator();
+console.log(takeANumber.next().value);
+		            </div>
+		            <div class="editor-result-output"></div>
+		        </section>
+
+				<section class="full">
+		            <div class="editor-input expanded">
+function* ticketGenerator() {
+	for (var i = 0; true; i++) {
+		var reset = yield i;
+
+		if (reset) {
+			i = -1;
+		}
+	}
+}
+
+let takeANumber = ticketGenerator();
+console.log(takeANumber.next().value);
+console.log(takeANumber.next().value);
+console.log(takeANumber.next(true).value);
+console.log(takeANumber.next().value);
+		            </div>
+		            <div class="editor-result-output"></div>
+		        </section>		   
+
+		        <section>
+		            <h3>No more Callback HELL!</h3>
+		        </section>
+
+				<section class="full">
+		            <div class="editor-input expanded">
+//advanced example from - http://modernweb.com/2014/02/10/replacing-callbacks-with-es6-generators/
+//create an async function
+function delay(time, callback) {
+    setTimeout(function() {
+        callback("Slept for " + time);
+    }, time);
+}
+
+//create a wrapper around a callback based function, to have it call next()
+function run(generatorFunction) {
+    //grab the iterator, and pass in the callback
+    var generatorItr = generatorFunction(resume);
+
+    function resume(callbackValue) {
+        //when the callback is called, call next, and pass the value
+        generatorItr.next(callbackValue);
+    }
+    //start the iterator
+    generatorItr.next()
+}
+//wrap our generator in the run method
+run(function* myDelayedMessages(resume) {
+    console.log(yield delay(1000, resume));
+    console.log(yield delay(1200, resume));
+});
+		            </div>
+		            <div class="editor-result-output"></div>
+		        </section>
+
+			</div>
+		</div>
+
+		<script src="assets/polyfill.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<script src="assets/browser.js"></script>
+		<script src="assets/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+		<script src="assets/pres.js"></script>
+		<script src="assets/runtime.js"></script>
+
+	</body>
+</html>
